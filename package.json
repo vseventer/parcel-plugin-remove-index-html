@@ -1,7 +1,7 @@
 {
   "name": "parcel-plugin-remove-index-html",
   "version": "0.1.0",
-  "description": "",
+  "description": "Remove index.html from internal links in Parcel's build output.",
   "keywords": [
     "parcel",
     "parcel-plugin",
