@@ -1,7 +1,7 @@
 # parcel-plugin-remove-index-html
 > Remove `index.html` from internal links in Parcel's build output.
 
-[Parcel][parcel] is great, but unfortunately the HTML build output will include a trailing `index.html` for internal links. This plugin will strip `index.html` from `<a>` and `<link>` tags using [PostHTML][posthtml], making your URLs beautiful again. External URLs not part of your Parcel build will be left untouched.
+[Parcel][parcel] is great, but unfortunately the HTML build output will include a trailing `index.html` for internal links. This plugin will remove `index.html` from `<a>` and `<link>` tags using [PostHTML][posthtml], making your URLs beautiful again. External URLs not part of your Parcel build will be left untouched.
 
 ## Examples
 Things this plugin will replace:
@@ -20,6 +20,8 @@ Depending on which package manager you use, either:
 
 ## Usage
 Parcel automatically picks up on this plugin, and no further action is required on your part.
+
+You can see how many occurrences are removed per HTML asset by enabling debug mode: `$ DEBUG=parcel:remove-index-html parcel ...`.
 
 ## Related
 * [parcel-plugin-strip-html](https://www.npmjs.com/package/parcel-plugin-strip-index-html): removes `index.html` from the entire source (i.e. not only `<a>` and `<link>` tags) using string replacement. This plugin will replace things you might not expect (see above).
