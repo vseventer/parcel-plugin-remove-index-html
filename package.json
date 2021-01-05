@@ -12,11 +12,18 @@
   "author": "Mark van Seventer <mark@vseventer.com> (https://www.vseventer.com)",
   "main": "./index.js",
   "repository": "github:vseventer/parcel-plugin-remove-index-html",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "debug": "^4.1.1",
     "posthtml": "^0.12.0"
   },
   "engines": {
     "node": ">=7.6"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "parcel-bundler": "^1.12.4"
   }
 }
