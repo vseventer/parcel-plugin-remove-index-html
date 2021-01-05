@@ -27,9 +27,20 @@ module.exports = (SuperHTMLPackager) => {
       let count = 0;
       tree.match(MATCHER_NODES, (node) => {
         const { href } = node.attrs;
-        if (href.indexOf(this.publicURL) === 0 && href.slice(-11) === '/index.html') {
+
+        if (
+          (href.indexOf(this.publicURL) === 0 || href.indexOf('://') === -1) &&
+          (href.slice(-11) === '/index.html' ||
+            href.indexOf('/index.html?') >= 0 ||
+            href.indexOf('/index.html#') >= 0)
+        ) {
           count += 1;
-          node.attrs.href = href.slice(0, -10); // Preserve trailing slash.
+          const pos = href.indexOf('/index.html');
+          // using `pos + 1` to preserve trailing slash.
+          node.attrs.href = href.slice(0, pos + 1) + href.slice(pos + 11);
+        } else if (href.indexOf('index.html') === 0) {
+          count += 1;
+          node.attrs.href = './' + href.slice(10);
         }
         return node;
       });
